@@ -16,10 +16,14 @@ public class Run {
     private static final Logger LOGGER = LoggerFactory.getLogger(Run.class);
 
     public final static void main(String[] args) throws Exception {
-        LOGGER.info("Stating HttpProxyServer ...");
+        int port = System.getProperty("proxyPort") != null ? Integer.parseInt(System.getProperty("proxyPort")) : 8080;
+        LOGGER.info("Stating HttpProxyServer with port : {}", port);
         HttpProxyServer server =
                 DefaultHttpProxyServer.bootstrap()
-                        .withPort(8080)
+                        .withPort(port)
                         .start();
+        LOGGER.info("ConnectTimeout : {}", server.getConnectTimeout());
+        LOGGER.info("IdleConnectionTimeout : {}", server.getIdleConnectionTimeout());
+        LOGGER.info("ListenAddress : {}", server.getListenAddress());
     }
 }
