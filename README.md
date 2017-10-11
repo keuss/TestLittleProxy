@@ -14,4 +14,8 @@ $ ./run.bash
 OR
 
 $ ./run.bash -DproxyPort=8880
+
+OR
+
+$ nohup ./run.bash -DproxyPort=8883 &
 ```
