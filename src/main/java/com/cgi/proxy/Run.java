@@ -18,6 +18,8 @@ public class Run {
     public final static void main(String[] args) throws Exception {
         int port = System.getProperty("proxyPort") != null ? Integer.parseInt(System.getProperty("proxyPort")) : 8080;
         LOGGER.info("Stating HttpProxyServer with port : {}", port);
+        // For acceptor threads, incoming worker threads and outgoing worker thread =>
+        // .withThreadPoolConfiguration(new ThreadPoolConfiguration().withClientToProxyWorkerThreads(10).withProxyToServerWorkerThreads(10))
         HttpProxyServer server =
                 DefaultHttpProxyServer.bootstrap()
                         .withPort(port)
