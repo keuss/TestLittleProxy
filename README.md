@@ -2,7 +2,7 @@
 
 Test for the little proxy : https://github.com/adamfisk/LittleProxy
 
-## Run
+## Run (with build)
 
 Default port is 8080
 
